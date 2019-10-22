@@ -126,6 +126,6 @@ This is what you expect to see when the CI/CD pipeline ends.
 
 Congratulations! You’ve successfully deployed your front-end application to IBM Cloud ! Now let's see how you can navigate to URL via browser.
 
-<p align="center"><img src="docs/screen11.png"></p>
+<p align="center"><img src="docs/screen11.gif"></p>
 
 Your toolchain has created a new Cloud Foundry application and assigned with a random URL. Finally, you have your application running in the cloud and ready to share with your friends and colleagues !!
