@@ -82,7 +82,7 @@ Vue CLI initilizes a Git repository inside a project and makes the first commit 
 
     <p align="center"><img src="docs/screen4.gif"></p>
 
-    Git runs locally on a computer, but GitHub might be a better choice because you can host your repositories in a remote server and protect them from and local crashes. We will create a remote repository and push our local commits to GitHub servers.
+Git runs locally on a computer, but GitHub might be a better choice because you can host your repositories in a remote server and protect them from and local crashes. We will create a remote repository and push our local commits to GitHub servers.
 
 3. Now it's time to create a new repository on GitHub and add the URL for the remote repository where your local repository will be pushed. So that, go to your GitHub account on your browser and create a new repository with a desired repository name and description. <!--EM: We need to write out the steps that are being demonstrated in the following images for accessibility reasons--> <!--YP: done -->
 
