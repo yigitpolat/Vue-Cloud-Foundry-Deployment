@@ -24,14 +24,14 @@ This tutorial assumes you understand the fundamentals of Vue.js development. To 
 
 * [IBM Cloud](https://cloud.ibm.com) is a suite of cloud computing services from IBM that offers both platform as a service (PaaS) and infrastructure as a service (IaaS).
 * [Node.js](https://nodejs.org/en/) is an open source, cross-platform runtime environment for developing server-side and networking applications.
-* [Vue CLI](https://cli.vuejs.org) is a globally installed npm package and provides the vue command in your terminal.
+* [Vue CLI](https://cli.vuejs.org) is a globally installed npm package and provides the Vue command in your terminal.
 * [Git](https://git-scm.com) is a free, open source distributed version control system designed to handle projects quickly and efficiently.
 * [GitHub](https://github.com) is a distributed version-control platform where users collaborate on or adopt open source code projects.
 * [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry) is an open source, platform-as-a-service (PaaS) on IBM Cloud that enables you to deploy and scale apps without managing servers.
 
 # Step 1. Create a Vue project
 
-1. Make sure Vue CLI is installed correctly by running:
+1. Make sure the Vue CLI is installed correctly by running:
 
     ```bash
     $ vue --version
@@ -66,8 +66,7 @@ Depending on the size of the project, application development can take a long ti
 
 Vue CLI initilizes a Git repository inside a project and makes the first commit by default.
 
-1. Let's make a modification a small modification in the main page and make our second commit. For that, open the project with your preferred code editor and find the file under the /src/App.vue folder. Change the line number 4 as `<HelloWorld msg="Welcome to Your Vue.js App"/>` . <!--EM: I'm a little confused about this. Is the reader supposed to add that message under the folder? Or is the reader supposed to navigate to that folder and then add the message?-->  
-    <!--YP: Reader supposed to navigate to that folder and should change code as in gif. I tried to be more clear by changing this paragprah.Please take a look-->
+1. Let's make a small modification in the main page and make our second commit. For that, open the project with your preferred code editor and find the file under the /src/App.vue folder. Change the line number 4 as `<HelloWorld msg="Welcome to Your Vue.js App"/>` .
 
     > Note: If you did not stop the serving process on the terminal, you can see the changes instantly. If you already stopped the process, run `npm run serve` again in the project directory.
 
@@ -82,13 +81,13 @@ Vue CLI initilizes a Git repository inside a project and makes the first commit 
 
     <p align="center"><img src="docs/screen4.gif"></p>
 
-Git runs locally on a computer, but GitHub might be a better choice because you can host your repositories in a remote server and protect them from and local crashes. We will create a remote repository and push our local commits to GitHub servers.
+Git runs locally on a computer, but GitHub might be a better choice because you can host your repositories in a remote server and protect them from local crashes. We will create a remote repository and push our local commits to GitHub servers.
 
-3. Now it's time to create a new repository on GitHub and add the URL for the remote repository where your local repository will be pushed. So that, go to your GitHub account on your browser and create a new repository with a desired repository name and description. <!--EM: We need to write out the steps that are being demonstrated in the following images for accessibility reasons--> <!--YP: done -->
+3. Now it's time to create a new repository on GitHub and add the URL for the remote repository where your local repository will be pushed. To do that, go to your GitHub account on your browser and create a new repository, name it, and give it a  description.
 
     <p align="center"><img src="docs/screen5.gif"></p>
     
-4. Finally, changes in your local repository will pushed up to the remote repository you specified as the origin. You can either copy and paste the commands given you by GitHub just after created the repository or commands below by changing the repository URL. <!--EM: Does this happen automatically (the pushing?) or do we initiate it via the CLI? If it's the latter, we need to write out the steps that are being demonstrated in the following images for accessibility reasons--> <!--YP: It is done via CLI. I have list the steps below> -->
+4. Finally, you need to push the changes in your local repository up to the remote repository that you specified as the origin. You can either copy and paste the commands GitHub gives you right after you create the repository or use the commands below, inserting your repository URL.
 
     ```bash
     $ git remote add origin <your_remote_repository_url>
@@ -99,27 +98,39 @@ Git runs locally on a computer, but GitHub might be a better choice because you 
 
 # Step 3. Deploy your project to IBM Cloud
 
-Developers today need to have a DevOps mindset to adjust quickly to ensure stable deployments of the applications. This tutorial follows DevOps strategies to deploy your Vue project to IBM Cloud.
+Using DevOps practices enables you to adjust quickly to changing requirements and still ensure stable application deployments. This tutorial follows DevOps strategies to deploy your Vue project to IBM Cloud.
 
-IBM Cloud offers [Toolchains](https://cloud.ibm.com/docs/services/ContinuousDelivery?topic=ContinuousDelivery-toolchains_about) service which is basically a set of tool integrations that support development, deployment, and operations tasks. There are a large number of toolchain templates depending on your intention, though you will select the one for Cloud Foundry. <!--EM: What is the URL for that?--> <!--YP: added documentation link. is it fine? --> [Delivery Pipeline](https://cloud.ibm.com/docs/services/ContinuousDelivery?topic=ContinuousDelivery-deliverypipeline_about) is an essential component of any toolchains where the Build, Test, Release, and Deploy steps of continuous integration and continious deployment are handled.
+[Toolchains](https://cloud.ibm.com/docs/services/ContinuousDelivery?topic=ContinuousDelivery-toolchains_about) in IBM Cloud are a set of tool integrations that support development, deployment, and operations tasks. There are a large number of toolchain templates depending on your intention. For this tutorial, select the one for Cloud Foundry. [Delivery Pipeline](https://cloud.ibm.com/docs/services/ContinuousDelivery?topic=ContinuousDelivery-deliverypipeline_about) is an essential component of any toolchains where the Build, Test, Release, and Deploy steps of continuous integration and continious deployment are handled.
 
-1. Login to [IBM Cloud](https://cloud.ibm.com/) with your credentials and find Toolchain service under **Developer Tools** section in the **Catalog**. After selecting Toolchain service, you will face with toolchain templates. You should create **Developer a Cloud Foundry App** from the list of templates. Then, give an appropriate name for your Toolchain service and complete the tool integration steps by selecting GitHub as source provider, Authorizing IBM Cloud Toolchains with GitHub, setting repository type as Existing, giving repository URL as your repository where you created in previous step in GitHub, and creating IBM Cloud API Key for Delivery Pipeline respectively. Finally, you can click on create button to complete this step.  <!--YP: added here, please check -->
+1. Log in to [IBM Cloud](https://cloud.ibm.com/) with your credentials and find the Toolchain service under the **Developer Tools** section in the **Catalog**. After selecting Toolchain service, you will see numerous toolchain templates. 
+
+1. Select **Developer a Cloud Foundry App** from the list of templates. 
+1. Name your Toolchain service.
+1. Complete the tool integration steps by doing the following:
+    1. Select *GitHub* as the source provider.
+    1. Authorize IBM Cloud Toolchains to work with GitHub.
+    1. Set your repository type as *Existing*.
+    1. Specify your repository URL; this is the GitHub repository you created in previous steps.
+    1. Create and IBM Cloud API Key for Delivery Pipeline, respectively. 
+    1. Click **Create** to complete this step.
+
     <p align="center"><img src="docs/screen7.gif"></p>
 
-    >Note: You should select the region, organization, and space correcly while creating Cloud Foundry applications. If you are not sure what values to use for these fields, go to  **Manage > Account** and selecting **Account resources > Cloud Foundry orgs**.
+    >Note: You should select the region, organization, and space correcly while creating Cloud Foundry applications. If you are not sure what values to use for these fields, go to **Manage > Account** and select **Account resources > Cloud Foundry orgs**.
 
-After following the above steps, your toolchain should be created succesfully, but it will fail when you try to deploy it becuase your configurations are incorrect. The following steps show you how to fix the configurations in your Delivery Pipeline. Delivery Pipeline consist of two separate stages: Build and Deploy.
+    After completing the steps above, your toolchain should be created succesfully; however, it will fail when you try to deploy it becuase your configurations are incorrect. The following steps show you how to fix the configurations in your Delivery Pipeline, which has two separate stages &mdash; Build and Deploy.
 
-Thus far, you have used the `npm run serve` command to develop Vue projects on your local system. For production purposes, your code must be built. You can do this by running the `npm run build` command.
+    Thus far, you have used the `npm run serve` command to develop Vue projects on your local system. For production purposes, your code must be built. You can do this by running the `npm run build` command.
 
-Instead of building the source code every time in our development environment, you will set the toolchain to build the code in the Build phase.
+    Instead of building the source code every time in your development environment, you will set the toolchain to build the code in the Build phase.
 
-2. To configure Build stage select Delivery Pipeline component and click on Configure Stage under Build stage's gear button. Change Builder type simple to npm and add `npm run build` under `npm install` command. Save this new configuration.  <!--YP: added here, please check -->
+1. To configure the Build stage, select the Delivery Pipeline component and click **Configure Stage** under the Build stage's gear button. Change the Builder type `simple` to `npm` and add `npm run build` under  the `npm install` command. Save this new configuration.
+    
     <p align="center"><img src="docs/screen8.gif"></p>
 
-The application we're building is deployed to Cloud Foundry which is as PaaS that ensures the fastest, easiest, and most reliable deployment of cloud-native applications. Cloud Foundry application specs are set in the file named **manifest.yml**. You can find more information about manifest.yml attiributes in the [Cloud Foundry documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html). <!--YP: added here, please check -->
+    We are going to deploy our Vue.js application to Cloud Foundry which is as PaaS that ensures the fastest, easiest, and most reliable deployment of cloud-native applications. Cloud Foundry application specs are set in the file named *manifest.yml*. You can find more information about manifest.yml attributes in the [Cloud Foundry documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html).
 
-3. You should create *manifest.yml* file inside the main directory of your project where you set basic information about your application. After adding *manifest.yml* file to your workspace, commit and push the changes so that both your local and remote repositories notice the added file. Since changes in your GitHub repo trigger the pipeline, where the Build and Deploy stages start doing their tasks in order, a new process will start automatically. If you are fast enough to switch your screen to your browser, you can see your pipeline already doing its job.<!--EM: Where do they create this file? In the CLI?--> <!--YP: done-->
+1. You should create a *manifest.yml* file inside the main directory of your project where you set basic information about your application. After adding *manifest.yml* file to your workspace, commit and push the changes so that both your local and remote repositories notice the added file. Since changes in your GitHub repo trigger the pipeline where the Build and Deploy stages start doing their tasks in order, a new process will start automatically. If you are fast enough to switch your screen to your browser, you can see your pipeline already doing its job.
 
     ```yaml
     applications:
@@ -135,16 +146,16 @@ The application we're building is deployed to Cloud Foundry which is as PaaS tha
     <p align="center"><img src="docs/screen9.gif"></p>
 
 
-This is what you expect to see when the CI/CD pipeline ends.
+    This is what you expect to see when the CI/CD pipeline ends.
 
-<p align="center"><img src="docs/screen10.png"></p>
+    <p align="center"><img src="docs/screen10.png"></p>
 
 # Step 4. Navigate to your project
 
-Congratulations! You’ve successfully deployed your front-end application to IBM Cloud! Now let's see how you can navigate to the URL via a browser.
+Congratulations! You successfully deployed your front-end application to IBM Cloud! Now let's see how you can navigate to the URL via a browser.
 
-<!--YP: added here, please check -->
-Search your Cloud Foundry application name via search bar and select your application. You can either click on **Visit App URL** or navigate to route listed in Routes section on the top-right corner of the screen.
+In the IBM Cloud web console, search your Cloud Foundry application name via the search bar and select your application. You can either click on **Visit App URL** or navigate to the route listed in the Routes section at the top right corner of the screen.
+
 <p align="center"><img src="docs/screen11.gif"></p>
 
-Your toolchain has created a new Cloud Foundry application and assigned with a random URL. Finally, you have your application running in the cloud and ready to share with your friends and colleagues!
+Your toolchain has created a new Cloud Foundry application and assigned it with a random URL. Finally, you have your application running in the cloud and ready to share with your friends and colleagues!
